@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dancing Cubey</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Prevent scrollbars */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Fallback background color */
+        }
+
+        .cubey-container {
+          background-image: url('/cubey.PNG');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 100%;
+          height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="cubey-container"></div>
+    <script type="module">
+        // No need for a separate script file now, the container is already in the HTML.
+    </script>
+</body>
+</html>
