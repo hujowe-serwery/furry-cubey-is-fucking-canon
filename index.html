@@ -2,34 +2,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>furry cubey is fucking canon</title>
+    <title>Dancing Cubey</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow: hidden; /* Prevent scrollbars */
+            overflow: auto;  
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: black; /* Fallback background color */
+            background-color: black;
         }
 
-        .cubey-container {
-          background-image: url('/cubey.PNG');
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-          width: 100%;
-          height: 100%;
+        .image-container {
+            display: flex;
+            flex-direction: row; 
+            width: 100%; 
+            height: 100%; 
+            align-items: center; 
+
+        }
+
+        .image-container img {
+            max-height: 90vh; 
+            margin: 5px; 
+        }
+        .image-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .image-name{
+          color: white;
+          font-size: 1em;
         }
     </style>
 </head>
 <body>
-    <div class="cubey-container"></div>
+    <div class="image-container"></div>
     <script type="module">
-        // No need for a separate script file now, the container is already in the HTML.
+        const imageContainer = document.querySelector('.image-container');
+        const images = [
+          {path: "/cubey.PNG", title: "cubey.PNG"},
+          {path: "/cubeyfv2.png", title: "cubeyfv2.png"},
+          {path: "/leoplex.png", title: "leoplex.png"},
+          {path: "/noxyv6.png", title: "noxyv6.png"}
+        ];
+
+        images.forEach(image => {
+          const imageWrapper = document.createElement('div');
+          imageWrapper.classList.add('image-wrapper');
+          const imgElement = document.createElement('img');
+          imgElement.src = image.path;
+          imgElement.alt = image.title;
+
+          const imageName = document.createElement('div');
+          imageName.classList.add('image-name');
+          imageName.textContent = image.title;
+
+          imageWrapper.appendChild(imgElement);
+          imageWrapper.appendChild(imageName);
+          imageContainer.appendChild(imageWrapper);
+        });
     </script>
 </body>
 </html>
